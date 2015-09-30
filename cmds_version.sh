@@ -9,7 +9,7 @@ RESULT_TXT=result.txt
 #new OS의 디렉토리에 있는 명령어들을 하나의 텍스트 파일에 저장함.
 function create_cmds_txt()
 {
-        newOS_dir_arr=("/bin" "/sbin" "/usr/local/bin" "/usr/local/sbin") # 명령어를 검사할 디렉토리를 이 곳에 추가!
+        newOS_dir_arr=("/bin" "/sbin" "/usr/local/bin" "/usr/local/sbin") #검사할 디렉토리를 이 곳에 추가!
 
         for ((idx=0; idx < ${#newOS_dir_arr[@]}; idx++))
         do
