@@ -2,18 +2,14 @@
 
 #HyunGwan Seo
 
-OLD_CMDS_TXT_INCLUDE_Lbracket=old-OS_cmds-Lbracket.txt
 NEW_CMDS_TXT_INCLUDE_Lbracket=new-OS_cmds-Lbracket.txt
-
-OLD_CMDS_TXT=old-OS_cmds.txt
 NEW_CMDS_TXT=new-OS_cmds.txt
-
 RESULT_TXT=result.txt
 
 #new OS의 디렉토리에 있는 명령어들을 하나의 텍스트 파일에 저장함.
 function create_cmds_txt()
 {
-        newOS_dir_arr=("/bin" "/sbin" "/usr/local/bin" "/usr/local/sbin")
+        newOS_dir_arr=("/bin" "/sbin" "/usr/local/bin" "/usr/local/sbin") # 명령어를 검사할 디렉토리를 이 곳에 추가!
 
         for ((idx=0; idx < ${#newOS_dir_arr[@]}; idx++))
         do
@@ -27,15 +23,15 @@ function create_cmds_txt()
 	rm -rf $NEW_CMDS_TXT_INCLUDE_Lbracket
 }
 
+#리눅스 명령어들의 버전을 구하는 함수
 function print_cmds_version()
 {
 	readarray -t cmds_arr < $NEW_CMDS_TXT
 	
 	for ((idx=0; idx < ${#cmds_arr[@]}; idx++ ))
 	do	
-
 		${cmds_arr[$idx]} --version >& /dev/null
-		status=$?
+		status=$? # 위 명령어를 실행한 후 리턴값(#?)을 저장함
 
 		echo -e "${cmds_arr[$idx]} 명령어 버전 확인 중..."
 
@@ -50,7 +46,6 @@ function print_cmds_version()
 		fi
 	done
 }
-
 
 create_cmds_txt
 print_cmds_version
