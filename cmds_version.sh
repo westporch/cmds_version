@@ -52,5 +52,5 @@ function print_cmds_version()
 }
 
 
-#create_cmds_txt
+create_cmds_txt
 print_cmds_version
