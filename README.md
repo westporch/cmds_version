@@ -3,6 +3,7 @@
 리눅스의 전체 명령어 버전을 확인하는 쉘 스크립트입니다.
 
 ![cmds_version 실행 화면](https://lh3.googleusercontent.com/-9wfVnrpVGUc/VguKQgE1HFI/AAAAAAAAB4s/i5XtVbeRxOY/s512-Ic42/cmds_version-screenshot.png)
+<br>
 ./cmds_version.sh 실행 후 result.txt 파일을 확인한 모습
 
 실행 방법
