@@ -12,11 +12,13 @@
 ```bash
 root@localhost:/home/westporch/Git/cmds_version#./cmds_version.sh
 ```
- **문제점**
+ 문제점
+-------
 <br>
 iptable-xml, ip6tables-restore, rmail, rmail-postfix등의 명령어의 버전을 검사할 때 입력 대기 상태에 빠찌게 됩니다. 
 
-**해결책**
+해결책
+------
 <br>
 1. cmds_version.sh 명령으로 인해 생성된 result.txt 파일을 삭제합니다. <br>
 2. cmds_version.sh 명령으로 인해 생성된 new-OS_cmds.txt 파일을 편집기로 실행합니다. (new-OS$_cmds.txt 파일을 삭제하지 않습니다.) <br>
