@@ -2,6 +2,11 @@
 
 #HyunGwan Seo
 
+# 개선할 점
+# 1. 예를들어 ping 명령어의 버전을 가져올 수 있도록 수정해야 함 -> iputils-s20121221
+#    (정규 표현식 부분 수정해야 함)
+# 2. 명령어 버전 옵션은 자동으로 --version, -v, -V로 전환되게 수정하기
+
 NEW_CMDS_TXT_INCLUDE_Lbracket=new-OS_cmds-Lbracket.txt
 NEW_CMDS_TXT=new-OS_cmds.txt
 RESULT_TXT=result.txt
@@ -30,20 +35,17 @@ function print_cmds_version()
 	
 	for ((idx=0; idx < ${#cmds_arr[@]}; idx++ ))
 	do	
-		${cmds_arr[$idx]} --version >& /dev/null
-		status=$? # 위 명령어를 실행한 후 리턴값(#?)을 저장함
 
 		echo -e "${cmds_arr[$idx]} 명령어 버전 확인 중..."
-
-		if [ $status = 0 ]; then # 버전 정보를 확인할 수 있는 경우
+		
+		# 옵션은 -v, -V를 줄 수도 있다.
+		${cmds_arr[$idx]} --version >& cmds_run_output.txt  # 예) debugfs -V는 파일로 저장해서 버전을 얻어야 함
 
 			echo -e "${cmds_arr[$idx]}\t \
-				`${cmds_arr[$idx]} --version | head -1 | \
+				`cat cmds_run_output.txt | head -1 | \
 	 			egrep -o '[0-9]+(\.[0-9]+)+(-[0-9]+.[a-z0-9]+_[0-9]*(\.[0-9]*)*)*' | \
 		 		sed -e '2,$d'`" >> $RESULT_TXT
-		else	 # 버전 정보를 확인할 수 없는 경우
-			echo -e "${cmds_arr[$idx]}\t 버전 정보 없음" >> $RESULT_TXT
-		fi
+
 	done
 }
 
