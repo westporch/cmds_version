@@ -20,9 +20,9 @@ iptable-xml, ip6tables-restore, rmail, rmail-postfix등의 명령어의 버전�
 해결책
 ------
 
-1. cmds_version.sh 명령으로 인해 생성된 result.txt 파일을 삭제합니다. <br>
-2. cmds_version.sh 명령으로 인해 생성된 new-OS_cmds.txt 파일을 편집기로 실행합니다. (new-OS$_cmds.txt 파일을 삭제하지 않습니다.) <br>
+1. cmds_version.sh 명령으로 인해 생성된 result.txt 파일을 삭제합니다. 
+2. cmds_version.sh 명령으로 인해 생성된 new-OS_cmds.txt 파일을 편집기로 실행합니다. (new-OS$_cmds.txt 파일을 삭제하지 않습니다.) 
 3. 입력 대기 상태에 빠진 명령어를 삭제해야 합니다. <br>
-4. cmds_version.sh 파일을 열어서 create_cmds_txt 함수를 주석 처리합니다. (#create_cmds_txt) <br>
+4. cmds_version.sh 파일을 열어서 create_cmds_txt 함수를 주석 처리합니다. (#create_cmds_txt) 
 5. ./cmds_version.sh을 실행합니다. 
-6. 입력 대기 상태에 빠지 되면 1~5의 과정을 반복합니다. <br>
+6. 입력 대기 상태에 빠지 되면 1~5의 과정을 반복합니다. 
